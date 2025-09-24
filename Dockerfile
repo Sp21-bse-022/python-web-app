@@ -1,20 +1,23 @@
-# Use official Python base image
+# Use official Python image
 FROM python:3.12-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy requirements first (for caching)
+# Copy requirements.txt from root
 COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the project
-COPY . .
+# Copy the entire devops project folder into /app
+COPY devops/ ./devops
 
-# Expose port
+# Set working directory to the devops folder
+WORKDIR /app/devops
+
+# Expose Django port
 EXPOSE 8000
 
-# Run Django server
+# Run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
