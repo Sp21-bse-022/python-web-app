@@ -3,7 +3,7 @@ name: Deploy Django to EC2
 on:
   push:
     branches:
-      - main   # deploy only when pushing to main
+      - master   # deploy only when pushing to main
 
 jobs:
   deploy:
@@ -35,3 +35,4 @@ jobs:
             docker run -d -p 8000:8000 --name devops-demo devops-demo:latest
           EOF
 
+#iadfuood
