@@ -35,4 +35,3 @@ jobs:
             docker run -d -p 8000:8000 --name devops-demo devops-demo:latest
           EOF
 
-#iadfuood
